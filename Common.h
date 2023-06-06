@@ -2,15 +2,20 @@
 #define _USE_MATH_DEFINES
 
 #include <math.h>
+#include <GL/glut.h>
+
 #define	PI				M_PI
 #define	polygon_num		50
 
-class Point
+#define	WIDTH 			800
+#define	HEIGHT			600
+
+template<typename T>
+void Safe_Delete(T& obj)
 {
-public:
-	float x, y;
-
-	Point(float x, float y) : x(x), y(y) {}
-};
-
-typedef Point Velocity;
+    if (obj)
+    {
+        delete obj;
+        obj = nullptr;
+    }
+}
